@@ -11,7 +11,7 @@ dx = 1                  # Division difference
 K = 40
 dt = (dx**2)/(4*K)      # Stability Condition
 
-Thot,Tcool = 100,-100
+Thot,Tcool = 100,0
 
 # Initialisation of Array
 U = np.empty((max_time,size,size))
@@ -51,4 +51,5 @@ def animate(k):
     vector.set_array(U[k])
     return vector,
 anim = FuncAnimation(fig,animate,interval=40,frames=max_time,repeat=True)
+anim.save("Heat_Equation.mp4",writer="ffmpeg")
 plt.show()
